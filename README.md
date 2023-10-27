@@ -2,7 +2,8 @@
 <p align="center"><img src="reports/figures/banner.jpeg"></p>
 
 # Solution
-**Problem statement:** [...]
+**Problem statement:** Identify customers who qualify for the Insiders loyalty program
+
 ## Performance and impact
 [...]
 

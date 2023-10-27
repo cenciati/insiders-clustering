@@ -9,62 +9,62 @@ from typing import Any, Dict
 from rich.logging import RichHandler
 
 BASE_DIR: str = os.path.dirname(os.path.abspath(__file__))
-LOGS_DIR = Path(BASE_DIR, '../__logs__')
+LOGS_DIR = Path(BASE_DIR, "../__logs__")
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
 LOG_HANDLER: Dict[str, str] = {
-    'stream': 'logging.StreamHandler',
-    'rotating_file': 'logging.handlers.RotatingFileHandler',
+    "stream": "logging.StreamHandler",
+    "rotating_file": "logging.handlers.RotatingFileHandler",
 }
 TEN_MB_IN_BYTES: int = 10_485_760
 BACKUP_COUNT: int = 10
-FORMATTER_TYPE: str = 'detailed'
+FORMATTER_TYPE: str = "detailed"
 
 logging_config: Dict[str, Any] = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'minimal': {'format': '%(levelname)s | %(message)s'},
-        'detailed': {
-            'format': '%(levelname)s %(asctime)s [%(name)s:%(filename)s:%(funcName)s:%(lineno)d]\n%(message)s\n'
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "minimal": {"format": "%(levelname)s | %(message)s"},
+        "detailed": {
+            "format": "%(levelname)s %(asctime)s [%(name)s:%(filename)s:%(funcName)s:%(lineno)d]\n%(message)s\n"
         },
     },
-    'handlers': {
-        'console': {
-            'class': LOG_HANDLER['stream'],
-            'stream': sys.stdout,
-            'formatter': 'minimal',
-            'level': logging.DEBUG,
+    "handlers": {
+        "console": {
+            "class": LOG_HANDLER["stream"],
+            "stream": sys.stdout,
+            "formatter": "minimal",
+            "level": logging.DEBUG,
         },
-        'info': {
-            'class': LOG_HANDLER['rotating_file'],
-            'filename': Path(LOGS_DIR, 'info.log'),
-            'maxBytes': TEN_MB_IN_BYTES,
-            'backupCount': BACKUP_COUNT,
-            'formatter': FORMATTER_TYPE,
-            'level': logging.INFO,
+        "info": {
+            "class": LOG_HANDLER["rotating_file"],
+            "filename": Path(LOGS_DIR, "info.log"),
+            "maxBytes": TEN_MB_IN_BYTES,
+            "backupCount": BACKUP_COUNT,
+            "formatter": FORMATTER_TYPE,
+            "level": logging.INFO,
         },
-        'error': {
-            'class': LOG_HANDLER['rotating_file'],
-            'filename': Path(LOGS_DIR, 'error.log'),
-            'maxBytes': TEN_MB_IN_BYTES,
-            'backupCount': BACKUP_COUNT,
-            'formatter': FORMATTER_TYPE,
-            'level': logging.ERROR,
+        "error": {
+            "class": LOG_HANDLER["rotating_file"],
+            "filename": Path(LOGS_DIR, "error.log"),
+            "maxBytes": TEN_MB_IN_BYTES,
+            "backupCount": BACKUP_COUNT,
+            "formatter": FORMATTER_TYPE,
+            "level": logging.ERROR,
         },
-        'critical': {
-            'class': LOG_HANDLER['rotating_file'],
-            'filename': Path(LOGS_DIR, 'critical.log'),
-            'maxBytes': TEN_MB_IN_BYTES,
-            'backupCount': BACKUP_COUNT,
-            'formatter': FORMATTER_TYPE,
-            'level': logging.CRITICAL,
+        "critical": {
+            "class": LOG_HANDLER["rotating_file"],
+            "filename": Path(LOGS_DIR, "critical.log"),
+            "maxBytes": TEN_MB_IN_BYTES,
+            "backupCount": BACKUP_COUNT,
+            "formatter": FORMATTER_TYPE,
+            "level": logging.CRITICAL,
         },
     },
-    'root': {
-        'handlers': ['console', 'info', 'error', 'critical'],
-        'level': logging.INFO,
-        'propagate': True,
+    "root": {
+        "handlers": ["console", "info", "error", "critical"],
+        "level": logging.INFO,
+        "propagate": True,
     },
 }
 

@@ -1,0 +1,16 @@
+{
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.tabSize": 4,
+    },
+    "files.exclude": {
+        "**/*.pyc": {
+            "when": "$(basename).py"
+        },
+        "**/__init__.py": true,
+        "**/__pycache__": true,
+        "**/*.pytest_cache": true,
+        "**/.mypy_cache": true,
+    }
+}

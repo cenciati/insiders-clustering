@@ -38,23 +38,23 @@ def set_jupyter_settings(
         max_columns: Optional[int] = None, max_rows: Optional[int] = 50
     ) -> None:
         """Pandas configurations."""
-        pd.set_option('display.max_columns', max_columns)
-        pd.set_option('display.max_rows', max_rows)
+        pd.set_option("display.max_columns", max_columns)
+        pd.set_option("display.max_rows", max_rows)
 
-    def set_plots_settings(
+    def set_plotting_settings(
         figsize: Optional[Tuple[int, int]] = (18, 9),
         fontsize: Optional[int] = 12,
     ) -> None:
         """Matplotlib configurations."""
-        plt.rc('figure', figsize=figsize)
-        plt.rc('font', size=fontsize)
+        plt.rc("figure", figsize=figsize)
+        plt.rc("font", size=fontsize)
 
     set_seeds()
     set_pandas_settings(max_columns=max_columns, max_rows=max_rows)
-    set_plots_settings(figsize=figsize, fontsize=fontsize)
+    set_plotting_settings(figsize=figsize, fontsize=fontsize)
     if filterwarnings:
-        warnings.filterwarnings('ignore')
-    logger.info('Jupyter has been successfully configured.')
+        warnings.filterwarnings("ignore")
+    logger.info("jupyter configurations setted")
 
 
 def cramers_v(X: Any, y: Any) -> float:
